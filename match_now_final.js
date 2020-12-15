@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mailer = require('nodemailer');
 var mongoose = require('mongoose');
+const path = require('path');
 
 
 const app = express();
@@ -11,14 +12,18 @@ const app = express();
 mongoose.connect(url_);
 var db = mongoose.connection;
 app.use(bodyParser.json()); 
-app.use(express.static('public')); 
+app.use('/static',express.static('public'));
+// app.use('/css', express.static(__dirname + 'public/css'));
+// app.use('/js', express.static(__dirname + 'public/js'));
+// app.use('/img', express.static(__dirname + 'public/img'));
+
 app.use(bodyParser.urlencoded({ 
     extended: true
 })); 
 
 
 app.get('/',function(req,res){ 
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(path.join(__dirname + "/index.html"));
     
 app.post('/signUp',function(req,res){
     
@@ -79,7 +84,7 @@ db.collection('toMatch').insertOne(data,function(err, collection){
     } 
  
          )
-            res.sendFile(__dirname + "/no_matches.html");
+            res.sendFile(__dirname + "/public/no_matches.html");
 
             //Send them to some page that says no matches currently, we have added you to the database
             
@@ -127,7 +132,7 @@ db.collection('toMatch').insertOne(data,function(err, collection){
                 }
             })
             
-             res.sendFile(__dirname + "/now_page.html");
+             res.sendFile(__dirname + "/public/now_page.html");
 
 
         }
@@ -143,5 +148,5 @@ db.collection('toMatch').insertOne(data,function(err, collection){
     // });
 })
 
-}).listen(3000) 
+}).listen(process.env.PORT  || 3000); 
 console.log('Running on port: 3000');
