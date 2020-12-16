@@ -157,7 +157,7 @@ db.collection('toMatch').insertOne(data,function(err, collection){
 
         /* EMAIL PEOPLE THAT GOT MATCHED */
             var recipients_string = best_email + ', ' + email;
-            var _text = best_name + " and " + fname + " " + lname + " are a match! You guys can reach eachother at: " + best_email + " and " + email "!";
+            var _text = best_name + " and " + fname + " " + lname + " are a match! You guys can reach eachother at: " + best_email + " and " + email + "!";
             var transporter = mailer.createTransport({service:'gmail',auth:{user:'friendmatchapp20@gmail.com',pass:'comp20rocks'}});
             var mailOptions = {from:'friendmatchapp20@gmail.com',to:recipients_string,subject:'Friend Match Results!',text:_text}
 
