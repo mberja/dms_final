@@ -12,15 +12,16 @@ const app = express();
 mongoose.connect(url_);
 var db = mongoose.connection;
 app.use(bodyParser.json()); 
+// app.use('/',express.static('public'));
 app.use('/static',express.static('public'));
 
 
 app.use(bodyParser.urlencoded({ 
     extended: true
 })); 
+app.get('/',function(req,res){res.sendFile(path.join(__dirname + "/homepage.html"));});
 
-
-app.get('/',function(req,res){ 
+app.get('/index',function(req,res){ 
     res.sendFile(path.join(__dirname + "/index.html"));
     app.post('/matchMeLater', function(req,res){ 
         var fname = req.body.fname; 
