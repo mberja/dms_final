@@ -316,15 +316,16 @@
                         
                         Your Email: <input style = "width: 200px; padding: 12px; border: 1px solid #B7B7A4; 
                                                 margin-top: 6px;margin-bottom: 16px; resize: vertical" 
-                                      type="email" id="email" name="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"> &nbsp;
+                                      type="email" id="email" name="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"> 
                         
                         <div id="err_email" class="errMsg">Please enter your email!</div>
+                        
+                        <div id="inv_email" class="errMsg">Please enter a valid email!</div>
 
                         
-                        <input style = "background-color: #72a797; color: white; font-size: 12px; padding: 10px 10px;
+                        &nbsp; <input style = "background-color: #72a797; color: white; font-size: 12px; padding: 10px 10px;
                                         border: none; cursor: pointer; border-radius: 20px;"
                                type="button" value="Validate" id="valemail" onclick="valEmail()">
-                        <div id="inv_email" class="errMsg">Please enter a valid email!</div>
                         <div class="emailresult" id="emailresult"></div>
         
                     </div> 
