@@ -13,9 +13,7 @@ mongoose.connect(url_);
 var db = mongoose.connection;
 app.use(bodyParser.json()); 
 app.use('/static',express.static('public'));
-// app.use('/css', express.static(__dirname + 'public/css'));
-// app.use('/js', express.static(__dirname + 'public/js'));
-// app.use('/img', express.static(__dirname + 'public/img'));
+
 
 app.use(bodyParser.urlencoded({ 
     extended: true
@@ -66,7 +64,6 @@ app.get('/',function(req,res){
             console.log("Record inserted Successfully"); 
                   
         }); 
-    //     return res.redirect('laterpage.html'); 
          res.sendFile(__dirname + "/public/later_page.html");
     })   
 app.post('/signUp',function(req,res){
@@ -89,7 +86,6 @@ app.post('/signUp',function(req,res){
     var age = req.body.age;
     var curr = [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12];
     var possible_q = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12'];
-   // console.log(q1);
     var cursor =  db.collection('toMatch').find().toArray(function(err,A)
     {
         /* Matching START */
@@ -100,7 +96,6 @@ app.post('/signUp',function(req,res){
         if (A.length == 0)
         {
             console.log("no one is currently in the database :(, Try to Match later!");
-//            another.toDatabase(q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,email,fname,lname);
                 var data = { 
         "fname": fname, 
         "lname":lname, 
@@ -181,16 +176,7 @@ db.collection('toMatch').insertOne(data,function(err, collection){
 
         }
     });
-  
-    // quest.getMatch(function(err, data)
-    // {
-    //     if (err)
-    //     {
-    //         throw err;
-    //     }
-    //     console.log(data);
-    // });
 })
 
 }).listen(process.env.PORT  || 3000); 
-console.log('Running on port: 3000');
+console.log('Running');
