@@ -213,7 +213,6 @@
             
             // Valid input verification
             err = false;
-            var letters = /^[A-Za-z]+$/;
 
             document.getElementById("err_fname").style.display = "none";
             document.getElementById("err_lname").style.display = "none";
@@ -223,13 +222,13 @@
             document.getElementById("err_age_old").style.display = "none";
             
             with (document.data) {
-                if (fname.value == "" || fname.value != letters ){
+                if (fname.value == ""){
                     document.getElementById("err_fname").style.display = "inline-block";
 				    fname.focus();
 				    err=true;
                 }
                 
-                if (lname.value == "" || fname.value != letters ) {
+                if (lname.value == "") {
                     document.getElementById("err_lname").style.display = "inline-block";
                     lname.focus();
                     err=true;
