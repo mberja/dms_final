@@ -23,8 +23,52 @@ app.use(bodyParser.urlencoded({
 
 
 app.get('/',function(req,res){ 
-    res.sendFile(path.join(__dirname + "/index.html"));
-    
+    res.sendFile(path.join(__dirname + "/public/homepage.html"));
+    app.post('/matchMeLater', function(req,res){ 
+        var fname = req.body.fname; 
+        var lname =req.body.lname; 
+        var email = req.body.email; 
+        var age =req.body.age;
+        var q1 = req.body.q1;
+        var q2 = req.body.q2;
+        var q3 = req.body.q3;
+        var q4 = req.body.q4;
+        var q5 = req.body.q5;
+        var q6 = req.body.q6;
+        var q7 = req.body.q7;
+        var q8 = req.body.q8;
+        var q9 = req.body.q9;
+        var q10 = req.body.q10;
+        var q11= req.body. q11;
+        var q12 = req.body.q12 ;
+        console.log(q1);
+        var data = { 
+            "fname": fname, 
+            "lname":lname, 
+            "email": email, 
+            "age": age,
+            "q1": q1,
+            "q2": q2,
+            "q3": q3,
+            "q4": q4, 
+            "q5": q5,
+            "q6": q6, 
+            "q7": q7,
+            "q8": q8, 
+            "q9": q9,
+            "q10": q10,
+            "q11": q11,
+            "q12": q12   
+            
+        } 
+    db.collection('toMatch').insertOne(data,function(err, collection){ 
+            if (err) throw err; 
+            console.log("Record inserted Successfully"); 
+                  
+        }); 
+    //     return res.redirect('laterpage.html'); 
+         res.sendFile(__dirname + "/later_page.html");
+    })   
 app.post('/signUp',function(req,res){
     
     var q1 = parseInt(req.body.q1);
