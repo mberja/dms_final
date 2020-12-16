@@ -213,7 +213,8 @@
             
             // Valid input verification
             err = false;
-            
+            var letters = /^[A-Za-z]+$/;
+
             document.getElementById("err_fname").style.display = "none";
             document.getElementById("err_lname").style.display = "none";
             document.getElementById("err_email").style.display = "none";
@@ -222,13 +223,13 @@
             document.getElementById("err_age_old").style.display = "none";
             
             with (document.data) {
-                if (fname.value == ""){
+                if (fname.value == "" || fname.value != letters ){
                     document.getElementById("err_fname").style.display = "inline-block";
 				    fname.focus();
 				    err=true;
                 }
                 
-                if (lname.value == "") {
+                if (lname.value == "" || fname.value != letters ) {
                     document.getElementById("err_lname").style.display = "inline-block";
                     lname.focus();
                     err=true;
@@ -300,9 +301,9 @@
                 <div class = "form_border">
                     &nbsp;
                     <div class = "form_q">
-                        First Name: <input type="text" id="fname" name="fname" placeholder="first name" pattern="[A-Za-z]"> <div id="err_fname" class="errMsg">Please enter your first name!</div><br>
+                        First Name: <input type="text" id="fname" name="fname" placeholder="first name"> <div id="err_fname" class="errMsg">Please enter your first name!</div><br>
                        
-                        Last Name: <input type="text" id="lname" name="lname" placeholder="last name" pattern="[A-Za-z]">
+                        Last Name: <input type="text" id="lname" name="lname" placeholder="last name">
                         <div id="err_lname" class="errMsg">Please enter your last name!</div><br>
                         
                         Your Age: &nbsp; <input style = "width: 200px; padding: 12px; border: 1px solid #B7B7A4; 
