@@ -67,7 +67,7 @@ app.get('/',function(req,res){
                   
         }); 
     //     return res.redirect('laterpage.html'); 
-         res.sendFile(__dirname + "/later_page.html");
+         res.sendFile(__dirname + "/public/later_page.html");
     })   
 app.post('/signUp',function(req,res){
     
