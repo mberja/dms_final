@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({
 
 
 app.get('/',function(req,res){ 
-    res.sendFile(path.join(__dirname + "/public/homepage.html"));
+    res.sendFile(path.join(__dirname + "/index.html"));
     app.post('/matchMeLater', function(req,res){ 
         var fname = req.body.fname; 
         var lname =req.body.lname; 
